@@ -1,0 +1,32 @@
+[
+     {
+          "title": "nombre",
+          "price": 44,
+          "thumbnail": "frg",
+          "id": 9
+     },
+     {
+          "title": "productDos",
+          "price": "precio1",
+          "thumbnail": "imagen1",
+          "id": 10
+     },
+     {
+          "title": "productDos",
+          "price": "precio1",
+          "thumbnail": "imagen1",
+          "id": 11
+     },
+     {
+          "title": "nombre",
+          "price": 77,
+          "thumbnail": "mjkjk",
+          "id": 3
+     },
+     {
+          "id": 4,
+          "title": "nombre",
+          "price": 44,
+          "thumbnail": "frg"
+     }
+]
