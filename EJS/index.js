@@ -2,13 +2,25 @@ const express = require("express")
 
 
 const PORT = 8080
-const rutas = require("./routes/productos")
+const rutaProductos = require("./routes/productos")
 
 const app = express()
+//Configuracion Pug
+app.set("view engine","ejs")
+app.set("views","./viewsEjs")
+
+
+//Middles
+app.use(express.static('public'));
 app.use(express.urlencoded());
 app.use(express.json())
-app.use("/",express.static("public"))
-app.use("/api", rutas)
+
+app.use("/productos", rutaProductos)
+
+app.get("/", (res,req) => {
+    res.sendFile(__dirname + "/public/index.hml")
+})
+
 app.use((err, req, res, next) => {
     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
         console.error(err);

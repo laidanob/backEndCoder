@@ -1,0 +1,32 @@
+[
+     {
+          "title": "Calculadora",
+          "price": "44",
+          "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png",
+          "id": 5
+     },
+     {
+          "title": "Libro",
+          "price": "44",
+          "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/book-note-paper-school-256.png",
+          "id": 6
+     },
+     {
+          "title": "Avion de Papel",
+          "price": "44",
+          "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/plane-paper-toy-science-school-256.png",
+          "id": 7
+     },
+     {
+          "title": "Gorro para egresados de coderHouse",
+          "price": "44",
+          "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/graduation-square-academic-cap-school-256.png",
+          "id": 9
+     },
+     {
+          "title": "El mundo",
+          "price": "44",
+          "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+          "id": 10
+     }
+]

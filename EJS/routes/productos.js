@@ -4,7 +4,7 @@ const {Router} = express
 
 let router = new Router()
 
-let products = []
+let products = require("../productos.json")
 let dataP = "";
 
 
@@ -77,19 +77,12 @@ const save = (objeto) => {
 
 }
 
-
-
-router.get("/productoRandom",(req,res) => {
-    const numeroRandom = Math.floor(Math.random()*5)
-    res.send(dataP[numeroRandom])
-
-})
-router.get("/productos",(req,res) => {
-    console.log("productos")
-    res.sendFile(__dirname+"/public/index.html")
+router.get("/",(req,res) => {
+    console.log("listaProductos")
+ res.render("index",{data:dataP})
 })
 
-router.get("/productos/:id",(req,res) => {
+router.get("/:id",(req,res) => {
     console.log("productos")
     const id = req.params.id
     const product = dataP.find(prod => {
@@ -104,14 +97,14 @@ router.get("/productos/:id",(req,res) => {
     }
 })
 
-router.post("/productos",(req,res) => {
+router.post("/",(req,res) => {
     const producto = {title: req.body.title,
         price: req.body.price,
         thumbnail: req.body.thumbnail}
         save(producto)
-        res.send(producto)
+        res.redirect("/")
     })
-router.delete("/productos/:id", (req,res) => {
+router.delete("/:id", (req,res) => {
     const id = req.params.id
     console.log(id)
     fs.readFile(`./productos.json`, "utf-8", (error, data) => {
@@ -122,10 +115,10 @@ router.delete("/productos/:id", (req,res) => {
             //parseo la data
             const dataDelete = JSON.parse(data)
             //filtra la data creando un array nuevo sin el objeto que sea igual al ID del parametro. Lo muestro en consola
-            if (dataDelete.some(prod => prod.id === id)) {
+            if (dataDelete.some(prod => prod.id == id)) {
                 res.send("se intentara borrar el producto")
                 const newArrayFilter = dataDelete.filter(prod => {
-                return prod.id !== id
+                return prod.id != id
             })
             console.table(newArrayFilter)
             //escribo el array nuevo
@@ -142,7 +135,7 @@ router.delete("/productos/:id", (req,res) => {
     })
 })
 
-router.put("/productos/:id", (req, res) =>{
+router.put("/:id", (req, res) =>{
     let{title, price, thumbnail} = req.body
 
 
