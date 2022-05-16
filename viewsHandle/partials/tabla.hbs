@@ -1,0 +1,41 @@
+<section class="ftco-section mb-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="h5 mb-4 text-center">Lista de Productos</h3>
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-primary">
+						    <tr>
+						    	<th>Producto</th>
+						      <th>Precio</th>
+						      <th>Imagen</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+							  {{#each data }}
+							  
+						    <tr class="alert" role="alert">
+								<td>
+									<div class="email">
+										<span>{{this.title}} </span>
+										{{!-- <span>descripcion</span> --}}
+									</div>
+								</td>
+						      	<td>${{this.price}}</td>
+
+								<td>
+									<img> 
+										<div class="img" style="background-image: url({{this.thumbnail}});"></div>
+								</td>
+						    </tr>
+								{{/each}}
+						   
+						  </tbody>
+						</table>
+						<a href="/"><button type="button" class="btn btn-primary ">Agregar un producto</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>

@@ -2,6 +2,7 @@ const express = require("express")
 const fs = require("fs")
 const {Router} = express
 
+
 let router = new Router()
 
 let products = require("../productos.json")
@@ -79,7 +80,7 @@ const save = (objeto) => {
 
 router.get("/",(req,res) => {
     console.log("listaProductos")
- res.render("index",{data:dataP})
+ res.render("main",{layout:"index",data:dataP})
 })
 
 router.get("/:id",(req,res) => {

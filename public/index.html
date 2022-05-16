@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Contact Form 07</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<!-- <link rel="stylesheet" href="css/styleTabla.css"> -->
+	<link rel="stylesheet" href="css/chat.css">
+	
+	</head>
+	<body>
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<h2 class="heading-section">Agregar un producto</h2>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-10">
+						<div class="wrapper">
+							<div class="row no-gutters">
+								<div class="col-md-6 d-flex align-items-stretch">
+									<div class="contact-wrap w-100 p-md-5 p-4 py-5">
+										<h3 class="mb-4">Productos</h3>
+										<div id="form-message-warning" class="mb-4"></div> 
+								  <div id="form-message-success" class="mb-4">
+								Informacion Enviada
+								  </div>
+										<form action="/productos" method="post"  id="contactForm" name="contactForm" class="contactForm">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<input type="text" class="form-control" name="title" id="title" placeholder="title">
+													</div>
+												</div>
+												<div class="col-md-12"> 
+													<div class="form-group">
+														<input type="number" class="form-control" name="price" id="price" placeholder="price">
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="form-group">
+														<input type="text" class="form-control" name="thumbnail" id="thumbnail" placeholder="thumbnail">
+													</div>
+												</div>
+												<div class="col-md-12">
+													<div class="form-group">
+														<input type="submit" value="Enviar Producto" class="btn btn-primary">
+														<div class="submitting"></div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<div class="col-md-6 d-flex align-items-stretch">
+									<div class="info-wrap w-100 p-md-5 p-4 py-5 img ">
+										<div class="d-flex justify-content-center align-items-center h-100">
+										<!-- <button type="button" class="btn btn-dark "><a href="/productos">Ver Productos</a></button> -->
+										</div>
+						 		</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			
+		</section>
+
+		<section class="ftco-section mb-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="h5 mb-4 text-center">Lista de Productos</h3>
+						<div class="table-wrap">
+							<table id="tablaProductos" class="table">
+							  <thead class="thead-primary">
+								<tr>
+									<th>Producto</th>
+								  <th>Precio</th>
+								  <th>Imagen</th>
+								</tr>
+							  </thead>
+							  <tbody id="bodyTabla">
+								  
+								<tr class="alert" role="alert">
+									<td>
+										<div class="email">
+											<span>{{this.title}} </span>
+											 <!-- <span>descripcion</span> -->
+										</div>
+									</td>
+									  <td>${{this.price}}</td>
+	
+									<td>
+										<img> 
+											<div class="img" style="background-image: url({{this.thumbnail}});"></div>
+									</td>
+								</tr>
+							   
+							  </tbody>
+							</table>
+							<!-- <a href="/"><button type="button" class="btn btn-primary ">Agregar un producto</button></a> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="chat">
+	<div id="chatCoder" class="container">
+		<div class="row chat-window col-xs-5 col-md-3" id="chat_window_1" style="margin-left:10px;">
+			<div class="col-xs-12 col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading top-bar">
+						<div class="col-md-8 col-xs-8">
+							<h3 class="panel-title"><span class="h-100 glyphicon glyphicon-comment"></span> </h3>
+						</div>
+						<div class="col-md-4 col-xs-4" style="text-align: right;">
+							<!-- <a href="#"><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a> -->
+							<a href="#"><span id="minim_chat_window" class="glyphicon glyphicon-minus icon_minim"></span></a>
+						</div>
+						<div class="input-group">
+							<input id="emailNombre" type="text" name="" class="form-control input-sm chat_input" placeholder="Tu Email" />
+							<span class="input-group-btn">
+							<button class="btn btn-primary btn-sm" id="btn-chat">+</button>
+							</span>
+						</div>
+					</div>
+					<div class="panel-body msg_container_base">
+	
+					   
+						<div class="row msg_container base_receive">
+							<div class="col-md-2 col-xs-2 avatar">
+								<img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive ">
+							</div>
+							<div class="col-md-10 col-xs-10">
+								<div class="messages msg_receive">
+									<p>that mongodb thing looks good, huh?
+									tiny master db, and huge document store</p>
+									<time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+								</div>
+							</div>
+						</div>
+						<div id=""></div>
+					   
+						</div>
+					</div>
+					<div class="panel-footer">
+						<form id="fomulario">
+						<div class="input-group">
+							<input id="mensaje" type="text" class="form-control input-sm chat_input" placeholder="Hablemos..." />
+							<span class="input-group-btn">
+							<input class="btn btn-primary btn-sm" id="btn-chat" type="submit" value="Enviar">
+							</span>
+						</div>
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!-- el socket lo traigo por CDN -->
+	<script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+	<script src="js/chat.js"></script>
+  <!-- <script src="js/main.js"></script> -->
+
+	</body>
+</html>
+
