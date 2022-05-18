@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		link(href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700', rel='stylesheet', type='text/css')
+		| &#x9;
+		link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+		| &#x9;
+		link(rel='stylesheet', href='css/styleTabla.css')
+		title Tabla Productos
+	body
+		section.ftco-section
+			.container
+				.row
+					.col-md-12
+						h3.h5.mb-4.text-center Lista de Productos
+						.table-wrap
+							table.table
+								thead.thead-primary
+									tr
+										th Producto
+
+										th Precio
+
+										th Imagen
+
+								tbody
+									each producto in data
+										tr.alert(role='alert')
+											td.email
+												span=producto.title
+												span
+											td=producto.price
+											td
+												img.img(src=producto.thumbnail)
+							a(href='/')
+								button.btn.btn-primary(type='button') Agregar un producto
+		script(src='js/tabla/jquery.min.js')
+		script(src='js/tabla/popper.js')
+		script(src='js/tabla/bootstrap.min.js')
+		script(src='js/tabla/main.js')
