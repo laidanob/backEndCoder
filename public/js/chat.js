@@ -25,7 +25,7 @@ const mensajesRender = (data) => {
         <div class="col-md-10 col-xs-10">
         <div class="messages msg_sent">
         <p>${x.mensaje}</p>
-        <time datetime="2009-11-13T20:00">${x.nombre}</time>
+        <time datetime="2009-11-13T20:00">${x.email}</time>
         </div>
         </div>
         <div class="col-md-2 col-xs-2 avatar">
@@ -40,7 +40,7 @@ const mensajesRender = (data) => {
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_receive">
                                 <p>${x.mensaje}</p>
-                                <time datetime="2009-11-13T20:00">${x.nombre}</time>
+                                <time datetime="2009-11-13T20:00">${x.email}</time>
                             </div>
                         </div>
                     </div>`
@@ -55,15 +55,15 @@ const productRender = (productos) => {
       <tr class="alert" role="alert">
           <td>
               <div class="email">
-                  <span>${producto.title} </span>
+                  <span>${producto.titulo} </span>
                   <!-- <span>descripcion</span> -->
               </div>
           </td>
-            <td>${producto.price}</td>
+            <td>${producto.precio}</td>
 
           <td>
               <img> 
-                  <div class="img" style="background-image: url(${producto.thumbnail});"></div>
+                  <div class="img" style="background-image: url(${producto.img});"></div>
           </td>
       </tr>
 

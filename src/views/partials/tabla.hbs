@@ -13,23 +13,23 @@
 						    </tr>
 						  </thead>
 						  <tbody>
-							  {{#each data }}
+							  {{!-- {{#each data }} --}}
 							  
 						    <tr class="alert" role="alert">
 								<td>
 									<div class="email">
-										<span>{{this.title}} </span>
+										{{!-- <span>{{this.titulo}} </span> --}}
 										{{!-- <span>descripcion</span> --}}
 									</div>
 								</td>
-						      	<td>${{this.price}}</td>
+						      	{{!-- <td>${{this.precio}}</td> --}}
 
 								<td>
 									<img> 
-										<div class="img" style="background-image: url({{this.thumbnail}});"></div>
+										{{!-- <div class="img" style="background-image: url({{this.img}});"></div> --}}
 								</td>
 						    </tr>
-								{{/each}}
+								{{!-- {{/each}} --}}
 						   
 						  </tbody>
 						</table>
