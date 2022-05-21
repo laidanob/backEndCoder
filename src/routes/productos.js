@@ -10,8 +10,8 @@ console.log("listaProductos")
     
 router.get("/",(req,res) => {
         // console.log("este console",dataP)
-        // res.render("main",{data: dataP})
-        res.send(dataP)
+        res.render("main",{data: dataP})
+        // res.send(dataP)
  
 })
 

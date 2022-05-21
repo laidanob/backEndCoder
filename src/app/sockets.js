@@ -3,49 +3,38 @@ const socket = (server) => {
 // Socket
 const {Server} = require("socket.io")
 const io = new Server(server)
-const {knexProductos} = require("../config/knex/knexProductos.js")
-const {knexMensajes} = require("../config/knex/knexMensajes.js")
+const {obtenerProductos} = require("../config/knex/knexProductos.js")
+const {obtenerMensajes,grabarMensajes} = require("../config/knex/knexMensajes.js")
 
-let mensajes = ""
-knexMensajes.from("mensajes")
-    .select("*")
-    .then((data) => {
-        mensajes = data 
-        console.log("mensajes knex",mensajes) 
-    })
-    .catch((err) => {
-        console.log(err)
-    })
 
-let productos = ""
-knexProductos.from("productos")
-    .select("*")
-    .then((data) => {
-        productos = data  
-    })
-    .catch((err) => {
-        console.log(err)
-    })
 
-// SocketConeccion 
 
-io.on("connection",(socket) => {
-    const actulizaMensajes = (data) => {
-        io.sockets.emit("mensajes",data)
+
+
+
+
+    // SocketConeccion 
+    io.on("connection",(socket) => {
+        socket.emit("mensajeRespuesta", "hola estas conectado con el back")
+        socket.on("mensajeCliente", (data) => {
+            console.log("mensaje respuesta",data)
+        })
+        
+        //Productos
+        obtenerProductos().then((productos) => io.sockets.emit("productos",productos))
+    
+    //Mensajes
+    const actulizaMensajes = () => {
+        obtenerMensajes().then((mensajes) => io.sockets.emit("mensajes",mensajes))
     }
     console.log(socket.id)
-    socket.emit("mensajeRespuesta", "hola estas conectado con el back")
-    socket.on("mensajeCliente", (data) => {
-        console.log("mensaje respuesta",data)
-    })
-    actulizaMensajes(mensajes)
+    actulizaMensajes()
     socket.on("datosMensajes", (data) => {
-        mensajes.push(data)
-        actulizaMensajes(mensajes)
+        grabarMensajes(data)
+        actulizaMensajes()
     })
     socket.emit("id", socket.id)
-    io.sockets.emit("productos",productos)
-    console.log("son los mensajes?",mensajes)
+    // console.log("son los mensajes?",mensajes)
 })
 }
 

@@ -25,7 +25,7 @@ const mensajesRender = (data) => {
         <div class="col-md-10 col-xs-10">
         <div class="messages msg_sent">
         <p>${x.mensaje}</p>
-        <time datetime="2009-11-13T20:00">${x.email}</time>
+        <time datetime="2009-11-13T20:00">${x.nombre}</time>
         </div>
         </div>
         <div class="col-md-2 col-xs-2 avatar">
@@ -40,7 +40,7 @@ const mensajesRender = (data) => {
                         <div class="col-md-10 col-xs-10">
                             <div class="messages msg_receive">
                                 <p>${x.mensaje}</p>
-                                <time datetime="2009-11-13T20:00">${x.email}</time>
+                                <time datetime="2009-11-13T20:00">${x.nombre}</time>
                             </div>
                         </div>
                     </div>`

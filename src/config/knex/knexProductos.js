@@ -15,7 +15,15 @@ knexProductos.schema.createTableIfNotExists("productos", (table) => {
     console.log("error tabla",error)
 })
 
+const obtenerProductos = async () => {
 
+try {
+const datos = await knexProductos.from("productos").select("*")
+    return datos
+    }
+catch {
+    return error
+}
+}
 
-
-module.exports = {knexProductos, productos}
+module.exports = {knexProductos,obtenerProductos}

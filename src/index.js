@@ -24,8 +24,8 @@ app.use(express.urlencoded());
 app.use(express.json())
 
 // Handlebars
+app.set("views","./src/views")
 app.set("view engine","hbs")
-app.set("views","./views")
 app.engine("hbs", engine({
     extname:".hbs",
     layoutsDir: __dirname + "/views/layouts",
@@ -33,7 +33,7 @@ app.engine("hbs", engine({
     partialsDir: __dirname+"/views/partials"
 
 }))
-console.log(__dirname + "/views/layouts")
+console.log(__dirname + "views/layouts")
 //socket
 socket(server)
 

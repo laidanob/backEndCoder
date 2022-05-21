@@ -14,15 +14,21 @@ knexMensajes.schema.createTableIfNotExists("mensajes", (table) => {
     console.log("error tabla Mensajes",error)
 })
 
-// knexMensajes.from("mensajes")
-//     .select("*")
-//     .then((data) => {
-//         mensajes = data 
-//         console.log("mensajes knex",mensajes) 
-//     })
-//     .catch((err) => {
-//         console.log(err)
-//     })
+const obtenerMensajes = async () => {
+try {
+const datos = await knexMensajes.from("mensajes").select("*")
+    return datos
+    }
+catch {
+    return "error"
+}
+}
+const grabarMensajes = (data) => {
+    knexMensajes("mensajes")
+    .insert(data)
+    .then(() => console.log("mensaje grabado OK") )
+    .catch((err) => console.log(err))
+    }
 
 
-module.exports = {knexMensajes, mensajes}
+module.exports = {knexMensajes, mensajes,obtenerMensajes,grabarMensajes}
